@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://do7kd4jdhi1ym"]
+[gd_scene load_steps=16 format=3 uid="uid://ba7r6307v33ob"]
 
 [ext_resource type="Script" uid="uid://dklv8v0d4amif" path="res://main.gd" id="1_15x1o"]
 [ext_resource type="PackedScene" uid="uid://b66ewl3hveivq" path="res://player.tscn" id="2_3uddc"]
+[ext_resource type="PackedScene" uid="uid://cdo1nme1sc5d7" path="res://world/store.tscn" id="3_nrmsc"]
 [ext_resource type="PackedScene" uid="uid://d2lb08642vfuw" path="res://caja.tscn" id="4_3uddc"]
 [ext_resource type="PackedScene" uid="uid://bwuox31tiu8up" path="res://world/estanteria_pared_doble.tscn" id="4_r0ces"]
 [ext_resource type="PackedScene" uid="uid://dmkm4w56peex5" path="res://objetos/pistola.tscn" id="5_nrmsc"]
@@ -52,6 +53,7 @@ shadow_enabled = true
 shape = SubResource("BoxShape3D_7dm0k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Suelo/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.526799)
 mesh = SubResource("BoxMesh_ig7tw")
 
 [node name="Estanterias" type="Node" parent="World"]
@@ -102,6 +104,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8428454, -7.134534)
 shape = SubResource("BoxShape3D_r0ces")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Pared/StaticBody3D/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21.791447)
 mesh = SubResource("BoxMesh_3uddc")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="World/Pared"]
@@ -134,6 +137,9 @@ shape = SubResource("BoxShape3D_r0ces")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Pared/StaticBody3D4/CollisionShape3D"]
 mesh = SubResource("BoxMesh_3uddc")
 
+[node name="8 16 20 conveniance_store" parent="World" instance=ExtResource("3_nrmsc")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -18.842587)
+
 [node name="PickableObject2" parent="." instance=ExtResource("4_3uddc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8110123, 1.8063221, 3.1046834)
 
@@ -165,4 +171,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8110123, 1.8063221, 1.08144
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8110123, 1.8063221, 1.9655883)
 
 [node name="Player" parent="." instance=ExtResource("2_3uddc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1204643, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.667335, -13.580032)

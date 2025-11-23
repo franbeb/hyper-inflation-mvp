@@ -1,18 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwuox31tiu8up"]
+[gd_scene load_steps=4 format=3 uid="uid://bwuox31tiu8up"]
 
 [ext_resource type="PackedScene" uid="uid://b04h85fxhm84j" path="res://model/EstanteriaParedDoble.glb" id="1_4shkm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4shkm"]
-size = Vector3(0.7, 1.5, 1)
+size = Vector3(0.03, 1.4, 0.96)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8qhyv"]
+size = Vector3(75, 5, 92)
 
 [node name="EstanteriaParedDoble" instance=ExtResource("1_4shkm")]
 
 [node name="grocery_shelf_002" parent="." index="0"]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, -0.05615127)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="grocery_shelf_002" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="grocery_shelf_002" index="4"]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 5.615127)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="grocery_shelf_002/StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7345476, -0.044675738)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6890626, -0.054256916)
 shape = SubResource("BoxShape3D_4shkm")
+debug_color = Color(0.7845117, 0.11516548, 0.99999994, 0.41960785)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="grocery_shelf_002" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6935114, 107.29779, 0.3961463)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grocery_shelf_002/StaticBody3D2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5943397, -1.7842178, 0)
+shape = SubResource("BoxShape3D_8qhyv")
+debug_color = Color(0.827234, 0, 0.53149885, 1)
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="grocery_shelf_002" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6935114, 77.593925, 0.3961463)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grocery_shelf_002/StaticBody3D3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5943397, -1.7842178, 0)
+shape = SubResource("BoxShape3D_8qhyv")
+debug_color = Color(0.827234, 0, 0.53149885, 1)
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="grocery_shelf_002" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6935114, 47.59875, 0.056475878)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grocery_shelf_002/StaticBody3D4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5943397, -1.9676094, 0)
+shape = SubResource("BoxShape3D_8qhyv")
+debug_color = Color(0.827234, 0, 0.53149885, 1)
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="grocery_shelf_002" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6935114, 17.961437, 0.3961463)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grocery_shelf_002/StaticBody3D5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5943397, -1.7842178, 0)
+shape = SubResource("BoxShape3D_8qhyv")
+debug_color = Color(0.827234, 0, 0.53149885, 1)
