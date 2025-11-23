@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://ba7r6307v33ob"]
+[gd_scene load_steps=16 format=3 uid="uid://do7kd4jdhi1ym"]
 
 [ext_resource type="Script" uid="uid://dklv8v0d4amif" path="res://main.gd" id="1_15x1o"]
 [ext_resource type="PackedScene" uid="uid://b66ewl3hveivq" path="res://player.tscn" id="2_3uddc"]
-[ext_resource type="PackedScene" uid="uid://cdo1nme1sc5d7" path="res://world/store.tscn" id="3_nrmsc"]
+[ext_resource type="PackedScene" path="res://world/store.tscn" id="3_nrmsc"]
 [ext_resource type="PackedScene" uid="uid://d2lb08642vfuw" path="res://caja.tscn" id="4_3uddc"]
 [ext_resource type="PackedScene" uid="uid://bwuox31tiu8up" path="res://world/estanteria_pared_doble.tscn" id="4_r0ces"]
 [ext_resource type="PackedScene" uid="uid://dmkm4w56peex5" path="res://objetos/pistola.tscn" id="5_nrmsc"]

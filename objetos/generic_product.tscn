@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://jsm8npml3ukt"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_y4cu8"]
+[ext_resource type="Script" uid="uid://d2g3xw0vny5hy" path="res://objetos/pickable_generic.gd" id="2_g6yj7"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_pcgfj"]
+[ext_resource type="Script" uid="uid://exykanbchq2" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="3_g6yj7"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_skdue"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ewchw"]
+size = Vector3(0.18066406, 0.36767578, 0.33392334)
+
+[sub_resource type="Resource" id="Resource_3twlv"]
+script = ExtResource("3_g6yj7")
+metadata/_custom_type_script = "uid://exykanbchq2"
+
+[sub_resource type="Resource" id="Resource_0c2ro"]
+script = ExtResource("3_g6yj7")
+metadata/_custom_type_script = "uid://exykanbchq2"
+
+[node name="GenericProduct" instance=ExtResource("1_y4cu8")]
+script = ExtResource("2_g6yj7")
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02640073, -0.12910807, -0.17598289)
+shape = SubResource("BoxShape3D_ewchw")
+
+[node name="GrabPointHandLeft" parent="." index="1" instance=ExtResource("2_pcgfj")]
+visible = true
+hand_pose = SubResource("Resource_3twlv")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="." index="2"]
+
+[node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("4_skdue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08199614, 0, 0)
+visible = true
+hand_pose = SubResource("Resource_0c2ro")
+
+[node name="PriceLabel" type="Label3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3113112, 0)
+billboard = 2
+text = "test"

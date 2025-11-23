@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://dmkm4w56peex5"]
+[gd_scene load_steps=18 format=3 uid="uid://dmkm4w56peex5"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_086nf"]
+[ext_resource type="Script" uid="uid://d17m00vjh5m0s" path="res://objetos/pickable_gun.gd" id="2_6ju8j"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="2_h683b"]
 [ext_resource type="Shader" uid="uid://b4lpqrih5uumj" path="res://addons/godot-xr-tools/materials/teleport.gdshader" id="3_soku1"]
 [ext_resource type="AudioStream" uid="uid://bwx3qulu0bkbi" path="res://audio/hit3.ogg" id="4_7flei"]
@@ -40,6 +41,7 @@ script = ExtResource("6_pxqws")
 metadata/_custom_type_script = "uid://d3ijrryubhn2q"
 
 [node name="PickableObject" instance=ExtResource("1_086nf")]
+script = ExtResource("2_6ju8j")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.10665439, -0.06564967)
@@ -100,6 +102,7 @@ collision_mask = 4
 
 [node name="GrabPointHandLeft" parent="." index="9" instance=ExtResource("8_pxqws")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0062942654, 0.056734063, -0.07634935)
+visible = true
 
 [node name="PistolaEtiquetadora" parent="." index="10" instance=ExtResource("9_77c26")]
 transform = Transform3D(-4.371139e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.371139e-09, -0.0061759055, -0.025427423, -0.041939795)

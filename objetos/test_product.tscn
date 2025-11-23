@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5oqs3xv5l6mu"]
+
+[ext_resource type="PackedScene" uid="uid://jsm8npml3ukt" path="res://objetos/generic_product.tscn" id="1_ll7wc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eed4m"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_25vyq"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[node name="GenericProduct" instance=ExtResource("1_ll7wc")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020065218, -0.031940103, -0.025188483)
+shape = SubResource("BoxShape3D_eed4m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0013826564)
+mesh = SubResource("BoxMesh_25vyq")
+
+[node name="PriceLabel" parent="." index="4"]
+visible = false

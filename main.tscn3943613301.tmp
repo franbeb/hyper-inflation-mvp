@@ -1,4 +1,45 @@
-@tool
+[gd_scene load_steps=16 format=3 uid="uid://ccqwb8bmuq6l8"]
+
+[ext_resource type="Script" uid="uid://dklv8v0d4amif" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://b66ewl3hveivq" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://d2lb08642vfuw" path="res://caja.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bybdnsj6sx8gf" path="res://bola.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dmkm4w56peex5" path="res://objetos/pistola.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://c5oqs3xv5l6mu" path="res://objetos/test_product.tscn" id="6_7mycd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
+sky_top_color = Color(0.57192916, 0.42130864, 2.8878452e-07, 1)
+sky_horizon_color = Color(0.6895189, 0.6441138, 0.5297867, 1)
+ground_horizon_color = Color(0.6895189, 0.6441138, 0.5297867, 1)
+
+[sub_resource type="Sky" id="Sky_h2yge"]
+sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+background_mode = 2
+sky = SubResource("Sky_h2yge")
+tonemap_mode = 2
+sdfgi_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
+size = Vector3(5, 0.2, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ig7tw"]
+size = Vector3(5, 0.2, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mycd"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_color = Color(0.8624779, 0.7750832, 0, 1)
+metallic = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_lquwl"]
+material = SubResource("StandardMaterial3D_1bvp3")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="GDScript" id="GDScript_i43b1"]
+script/source = "@tool
 class_name XRToolsPickable
 extends RigidBody3D
 
@@ -83,10 +124,10 @@ const DEFAULT_LAYER := 0b0000_0000_0000_0001_0000_0000_0000_0000
 @export var ranged_grab_speed : float = 20.0
 
 ## Refuse pick-by when in the specified group
-@export var picked_by_exclude : String = ""
+@export var picked_by_exclude : String = \"\"
 
 ## Require pick-by to be in the specified group
-@export var picked_by_require : String = ""
+@export var picked_by_require : String = \"\"
 
 
 ## If true, the object can be picked up at range
@@ -118,7 +159,7 @@ var _highlighted : bool = false
 
 # Add support for is_xr_class on XRTools classes
 func is_xr_class(name : String) -> bool:
-	return name == "XRToolsPickable"
+	return name == \"XRToolsPickable\"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -268,7 +309,7 @@ func pick_up(by: Node3D) -> void:
 	if is_picked_up():
 		# Ignore if we don't support second-hand grab
 		if second_hand_grab == SecondHandGrab.IGNORE:
-			print_verbose("%s> second-hand grab not enabled" % name)
+			print_verbose(\"%s> second-hand grab not enabled\" % name)
 			return
 
 		# Ignore if either pickup isn't by a hand
@@ -287,7 +328,7 @@ func pick_up(by: Node3D) -> void:
 			return
 
 		# Swapping hands, let go with the primary grab
-		print_verbose("%s> letting go to swap hands" % name)
+		print_verbose(\"%s> letting go to swap hands\" % name)
 		let_go(_grab_driver.primary.by, Vector3.ZERO, Vector3.ZERO)
 
 	# Remember the mode before pickup
@@ -351,14 +392,14 @@ func let_go(by: Node3D, p_linear_velocity: Vector3, p_angular_velocity: Vector3)
 
 			# Find a more suitable grab-point
 			var new_grab_point := _get_grab_point(_grab_driver.primary.by, null)
-			print_verbose("%s> held only by secondary, swapping grab points" % name)
+			print_verbose(\"%s> held only by secondary, swapping grab points\" % name)
 			switch_active_grab_point(new_grab_point)
 
 		# Grab is still good
 		return
 
 	# Drop the grab-driver
-	print_verbose("%s> dropping" % name)
+	print_verbose(\"%s> dropping\" % name)
 	_grab_driver.discard()
 	_grab_driver = null
 
@@ -430,10 +471,93 @@ func _get_grab_point(grabber : Node3D, current : XRToolsGrabPoint) -> XRToolsGra
 		point = point.target
 
 	# Return the best grab point
-	print_verbose("%s> picked grab-point %s" % [name, point])
+	print_verbose(\"%s> picked grab-point %s\" % [name, point])
 	return point
 
 
 func _set_ranged_grab_method(new_value: int) -> void:
 	ranged_grab_method = new_value
 	can_ranged_grab = new_value != RangedMethod.NONE
+
+var price = 1
+
+
+func show_price():
+	$PriceLabel.text = ((price/Globals.INFLATION) * 100) + \" %\"
+	$PriceLabel.show()
+
+func hide_price():
+	$PriceLabel.hide()
+
+func update_price():
+	price = Globals.INFLATION
+"
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_0xm2m")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1bvp3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21777451, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_7dm0k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_ig7tw")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.104886115, 1.3805289)
+shape = SubResource("BoxShape3D_7mycd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_lquwl")
+skeleton = NodePath("../../..")
+
+[node name="PickableObject" parent="." instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08877599, 0.89962506, 1.4988604)
+script = SubResource("GDScript_i43b1")
+
+[node name="PickableObject3" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.019505, 0.14208353, 0.9172672)
+script = SubResource("GDScript_i43b1")
+
+[node name="PickableObject4" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.612349, 0.22595489, 0.60176826)
+script = SubResource("GDScript_i43b1")
+
+[node name="PickableObject2" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1024394, 0.33514118, 0.5601032)
+script = SubResource("GDScript_i43b1")
+
+[node name="PickableObject5" parent="." instance=ExtResource("4_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.019505, 0.5457425, -0.9007976)
+script = SubResource("GDScript_i43b1")
+ranged_grab_method = null
+
+[node name="PickableObject6" parent="." instance=ExtResource("4_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40369034, 0.5457425, -0.9007976)
+script = SubResource("GDScript_i43b1")
+ranged_grab_method = null
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(-0.99691737, 0, -0.07845904, 0, 1, 0, 0.07845904, 0, -0.99691737, -0.8460505, 1.137927, -1.7498639)
+
+[node name="PickableObject8" parent="." instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3164662, 0)
+script = SubResource("GDScript_i43b1")
+
+[node name="PickableObject7" parent="." instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6678606, 0)
+script = SubResource("GDScript_i43b1")
+
+[node name="GenericProduct" parent="." instance=ExtResource("6_7mycd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70031655, 0.31600067, 0.015494704)
