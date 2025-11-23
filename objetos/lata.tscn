@@ -52,3 +52,11 @@ shape = SubResource("BoxShape3D_qvbqr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15555443, 1.1195456, -0.0903941)
 mesh = SubResource("ArrayMesh_g5aqs")
 skeleton = NodePath("")
+
+[node name="GrabPointHandLeft" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04156351, 0.115338966, -0.043641735)
+editor_preview_mode = 1
+
+[node name="GrabPointHandRight" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.034197867, 0.11429989, -0.04675902)
+editor_preview_mode = 1

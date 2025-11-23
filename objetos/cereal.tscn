@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0hfwvptichhn"]
+
+[ext_resource type="PackedScene" uid="uid://jsm8npml3ukt" path="res://objetos/generic_product.tscn" id="1_ai0fa"]
+[ext_resource type="PackedScene" uid="uid://by35ih85t04gg" path="res://model/cereals.FBX" id="2_0qobe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r4fha"]
+size = Vector3(0.22, 0.3, 0.13)
+
+[node name="GenericProduct" instance=ExtResource("1_ai0fa")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15008096, 0)
+shape = SubResource("BoxShape3D_r4fha")
+
+[node name="GrabPointHandLeft" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10137045, 0.0934715, -0.08030648)
+
+[node name="GrabPointHandRight" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10306013, 0.092154995, -0.08162295)
+
+[node name="PriceLabel" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3797692, 0)
+
+[node name="cereals" parent="." index="5" instance=ExtResource("2_0qobe")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.0039494913, -0.053976428)

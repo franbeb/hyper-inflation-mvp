@@ -135,7 +135,7 @@ shape = SubResource("BoxShape3D_r0ces")
 mesh = SubResource("BoxMesh_3uddc")
 
 [node name="Player" parent="." instance=ExtResource("2_3uddc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.667335, -3.0267775)
+transform = Transform3D(0.39458355, 0, -0.9188601, 0, 1, 0, 0.9188601, 0, 0.39458355, 0, 1.667335, -3.0267775)
 
 [node name="PickableObject" parent="." instance=ExtResource("5_nrmsc")]
 
