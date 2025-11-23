@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://droj7nfbo4b85"
-path.s3tc="res://.godot/imported/8 16 20 conveniance_store_registar_screen_user.png-0337361fd961d1aed22120782008cdb9.s3tc.ctex"
+uid="uid://1wsfc70pcs4o"
+path.s3tc="res://.godot/imported/8 16 20 conveniance_store_cardboard_box.png-903eb4cd6c78d822c7f45ff7c7d3389b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "a5c9d948fa8fc2185a1627bddfc22f73"
+"md5": "ef240b27de380b62384c353a2efeb07d"
 }
 
 [deps]
 
-source_file="res://model/8 16 20 conveniance_store_registar_screen_user.png"
-dest_files=["res://.godot/imported/8 16 20 conveniance_store_registar_screen_user.png-0337361fd961d1aed22120782008cdb9.s3tc.ctex"]
+source_file="res://model/textures/8 16 20 conveniance_store_cardboard_box.png"
+dest_files=["res://.godot/imported/8 16 20 conveniance_store_cardboard_box.png-903eb4cd6c78d822c7f45ff7c7d3389b.s3tc.ctex"]
 
 [params]
 

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1mxb7buujhfp"
-path.s3tc="res://.godot/imported/8 16 20 conveniance_store_resetroom.png-71599828b6d7964af5fd91f1419740ec.s3tc.ctex"
+uid="uid://buta6ww8daone"
+path.s3tc="res://.godot/imported/8 16 20 conveniance_store_tile_2.png-52663e27c6d07fb3c56a823578c4b1ec.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "4d20660395f7f6221a3a73984e1c2c13"
+"md5": "64fb73f393f7b7a49636cb629e51285d"
 }
 
 [deps]
 
-source_file="res://model/8 16 20 conveniance_store_resetroom.png"
-dest_files=["res://.godot/imported/8 16 20 conveniance_store_resetroom.png-71599828b6d7964af5fd91f1419740ec.s3tc.ctex"]
+source_file="res://model/textures/8 16 20 conveniance_store_tile_2.png"
+dest_files=["res://.godot/imported/8 16 20 conveniance_store_tile_2.png-52663e27c6d07fb3c56a823578c4b1ec.s3tc.ctex"]
 
 [params]
 

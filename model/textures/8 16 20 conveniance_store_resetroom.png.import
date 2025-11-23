@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpv3rkfqeg6pv"
-path.s3tc="res://.godot/imported/8 16 20 conveniance_store_checkout.png-cc8f3760e118cc45fb37e7cc62c015e0.s3tc.ctex"
+uid="uid://1mxb7buujhfp"
+path.s3tc="res://.godot/imported/8 16 20 conveniance_store_resetroom.png-12400321597752d13c0d6a08d276e931.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "90ca896633e1db6cb0bb3eb34c58a174"
+"md5": "4d20660395f7f6221a3a73984e1c2c13"
 }
 
 [deps]
 
-source_file="res://model/8 16 20 conveniance_store_checkout.png"
-dest_files=["res://.godot/imported/8 16 20 conveniance_store_checkout.png-cc8f3760e118cc45fb37e7cc62c015e0.s3tc.ctex"]
+source_file="res://model/textures/8 16 20 conveniance_store_resetroom.png"
+dest_files=["res://.godot/imported/8 16 20 conveniance_store_resetroom.png-12400321597752d13c0d6a08d276e931.s3tc.ctex"]
 
 [params]
 

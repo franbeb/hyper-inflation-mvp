@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byeks5ag8olp6"
-path.s3tc="res://.godot/imported/8 16 20 conveniance_store_front_sign_color.png-8b8304b6f408fd039725e5d189f57391.s3tc.ctex"
+uid="uid://cvjm6a1kttxb6"
+path.s3tc="res://.godot/imported/8 16 20 conveniance_store_welcome.png-ce415851dfa6501e14008fea5031b625.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "8255399d260f49a423954ad52477ed2e"
+"md5": "423fe09c962dced51de6e80ad021464a"
 }
 
 [deps]
 
-source_file="res://model/8 16 20 conveniance_store_front_sign_color.png"
-dest_files=["res://.godot/imported/8 16 20 conveniance_store_front_sign_color.png-8b8304b6f408fd039725e5d189f57391.s3tc.ctex"]
+source_file="res://model/textures/8 16 20 conveniance_store_welcome.png"
+dest_files=["res://.godot/imported/8 16 20 conveniance_store_welcome.png-ce415851dfa6501e14008fea5031b625.s3tc.ctex"]
 
 [params]
 

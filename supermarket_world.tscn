@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://do7kd4jdhi1ym"]
+[gd_scene load_steps=17 format=3 uid="uid://ba7r6307v33ob"]
 
 [ext_resource type="Script" uid="uid://dklv8v0d4amif" path="res://main.gd" id="1_15x1o"]
 [ext_resource type="PackedScene" uid="uid://b66ewl3hveivq" path="res://player.tscn" id="2_3uddc"]
 [ext_resource type="PackedScene" uid="uid://bwuox31tiu8up" path="res://world/estanteria_pared_doble.tscn" id="4_r0ces"]
 [ext_resource type="PackedScene" uid="uid://6rqjd8rybxrj" path="res://NPCs/npc.tscn" id="5_15x1o"]
 [ext_resource type="PackedScene" uid="uid://dmkm4w56peex5" path="res://objetos/pistola.tscn" id="5_nrmsc"]
+[ext_resource type="PackedScene" uid="uid://i8ni8t7pw7ak" path="res://world/cashier.tscn" id="6_3uddc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2esgm"]
 
@@ -165,5 +166,14 @@ autostart = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41473782, -9.928776)
 
 [node name="PickableObject" parent="." instance=ExtResource("5_nrmsc")]
+
+[node name="Cashier" parent="." instance=ExtResource("6_3uddc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.025255, 0.394464, -3.0384908)
+
+[node name="Cashier2" parent="." instance=ExtResource("6_3uddc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.95444, 0.394464, -6.07985)
+
+[node name="Cashier3" parent="." instance=ExtResource("6_3uddc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.375092, 0.394464, 0.12769175)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
