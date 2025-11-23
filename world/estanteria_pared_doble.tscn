@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwuox31tiu8up"]
+[gd_scene load_steps=7 format=3 uid="uid://bwuox31tiu8up"]
 
 [ext_resource type="PackedScene" uid="uid://b04h85fxhm84j" path="res://model/EstanteriaParedDoble.glb" id="1_4shkm"]
+[ext_resource type="PackedScene" uid="uid://cbefpunnua47l" path="res://objetos/botella.tscn" id="2_8qhyv"]
+[ext_resource type="Script" uid="uid://8tooko883xc3" path="res://world/estanteria_pared_doble.gd" id="2_rrycd"]
+[ext_resource type="PackedScene" uid="uid://c40timv4cjonw" path="res://objetos/lata.tscn" id="4_prdm3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4shkm"]
 size = Vector3(0.03, 1.4, 0.96)
@@ -8,7 +11,10 @@ size = Vector3(0.03, 1.4, 0.96)
 [sub_resource type="BoxShape3D" id="BoxShape3D_8qhyv"]
 size = Vector3(75, 5, 92)
 
-[node name="EstanteriaParedDoble" instance=ExtResource("1_4shkm")]
+[node name="EstanteriaParedDoble" node_paths=PackedStringArray("contenedor_puntos") instance=ExtResource("1_4shkm")]
+script = ExtResource("2_rrycd")
+objetos_posibles = Array[PackedScene]([ExtResource("2_8qhyv"), ExtResource("4_prdm3")])
+contenedor_puntos = NodePath("PuntosDeSpawn")
 
 [node name="grocery_shelf_002" parent="." index="0"]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, -0.05615127)
@@ -52,3 +58,197 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6935114, 17.961437, 0.39614
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5943397, -1.7842178, 0)
 shape = SubResource("BoxShape3D_8qhyv")
 debug_color = Color(0.827234, 0, 0.53149885, 1)
+
+[node name="PuntosDeSpawn" type="Node3D" parent="." index="1"]
+
+[node name="Marker3D" type="Marker3D" parent="PuntosDeSpawn" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 0.4696899, 0.5128827)
+
+[node name="Marker3D2" type="Marker3D" parent="PuntosDeSpawn" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 0.4696899, 0.34173092)
+
+[node name="Marker3D3" type="Marker3D" parent="PuntosDeSpawn" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 0.4696899, 0.19647267)
+
+[node name="Marker3D4" type="Marker3D" parent="PuntosDeSpawn" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 0.4696899, 0.025320858)
+
+[node name="Marker3D5" type="Marker3D" parent="PuntosDeSpawn" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 0.4696899, -0.14414033)
+
+[node name="Marker3D6" type="Marker3D" parent="PuntosDeSpawn" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 0.4696899, -0.31529215)
+
+[node name="Marker3D7" type="Marker3D" parent="PuntosDeSpawn" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 0.4696899, -0.4605504)
+
+[node name="Marker3D8" type="Marker3D" parent="PuntosDeSpawn" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 0.4696899, -0.6317022)
+
+[node name="Marker3D9" type="Marker3D" parent="PuntosDeSpawn" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.0672297, 0.5128827)
+
+[node name="Marker3D10" type="Marker3D" parent="PuntosDeSpawn" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.0672297, 0.34173092)
+
+[node name="Marker3D11" type="Marker3D" parent="PuntosDeSpawn" index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.0672297, 0.19647267)
+
+[node name="Marker3D12" type="Marker3D" parent="PuntosDeSpawn" index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.0672297, 0.025320858)
+
+[node name="Marker3D13" type="Marker3D" parent="PuntosDeSpawn" index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.0672297, -0.14414033)
+
+[node name="Marker3D14" type="Marker3D" parent="PuntosDeSpawn" index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.0672297, -0.31529215)
+
+[node name="Marker3D15" type="Marker3D" parent="PuntosDeSpawn" index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.0672297, -0.4605504)
+
+[node name="Marker3D16" type="Marker3D" parent="PuntosDeSpawn" index="15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.0672297, -0.6317022)
+
+[node name="Marker3D17" type="Marker3D" parent="PuntosDeSpawn" index="16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.6645147, 0.5128827)
+
+[node name="Marker3D18" type="Marker3D" parent="PuntosDeSpawn" index="17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.6645147, 0.34173092)
+
+[node name="Marker3D19" type="Marker3D" parent="PuntosDeSpawn" index="18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.6645147, 0.19647267)
+
+[node name="Marker3D20" type="Marker3D" parent="PuntosDeSpawn" index="19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.6645147, 0.025320858)
+
+[node name="Marker3D21" type="Marker3D" parent="PuntosDeSpawn" index="20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.6645147, -0.14414033)
+
+[node name="Marker3D22" type="Marker3D" parent="PuntosDeSpawn" index="21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.6645147, -0.31529215)
+
+[node name="Marker3D23" type="Marker3D" parent="PuntosDeSpawn" index="22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.6645147, -0.4605504)
+
+[node name="Marker3D24" type="Marker3D" parent="PuntosDeSpawn" index="23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.6645147, -0.6317022)
+
+[node name="Marker3D25" type="Marker3D" parent="PuntosDeSpawn" index="24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 2.2449827, 0.5128827)
+
+[node name="Marker3D26" type="Marker3D" parent="PuntosDeSpawn" index="25"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 2.2449827, 0.34173092)
+
+[node name="Marker3D27" type="Marker3D" parent="PuntosDeSpawn" index="26"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 2.2449827, 0.19647267)
+
+[node name="Marker3D28" type="Marker3D" parent="PuntosDeSpawn" index="27"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 2.2449827, 0.025320858)
+
+[node name="Marker3D29" type="Marker3D" parent="PuntosDeSpawn" index="28"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 2.2449827, -0.14414033)
+
+[node name="Marker3D30" type="Marker3D" parent="PuntosDeSpawn" index="29"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 2.2449827, -0.31529215)
+
+[node name="Marker3D31" type="Marker3D" parent="PuntosDeSpawn" index="30"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 2.2449827, -0.4605504)
+
+[node name="Marker3D32" type="Marker3D" parent="PuntosDeSpawn" index="31"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 2.2449827, -0.6317022)
+
+[node name="Marker3D33" type="Marker3D" parent="PuntosDeSpawn" index="32"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 0.4696899, 0.5128827)
+
+[node name="Marker3D34" type="Marker3D" parent="PuntosDeSpawn" index="33"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 0.4696899, 0.34173092)
+
+[node name="Marker3D35" type="Marker3D" parent="PuntosDeSpawn" index="34"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 0.4696899, 0.19647267)
+
+[node name="Marker3D36" type="Marker3D" parent="PuntosDeSpawn" index="35"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 0.4696899, 0.025320858)
+
+[node name="Marker3D37" type="Marker3D" parent="PuntosDeSpawn" index="36"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 0.4696899, -0.14414033)
+
+[node name="Marker3D38" type="Marker3D" parent="PuntosDeSpawn" index="37"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 0.4696899, -0.31529215)
+
+[node name="Marker3D39" type="Marker3D" parent="PuntosDeSpawn" index="38"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 0.4696899, -0.4605504)
+
+[node name="Marker3D40" type="Marker3D" parent="PuntosDeSpawn" index="39"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 0.4696899, -0.6317022)
+
+[node name="Marker3D41" type="Marker3D" parent="PuntosDeSpawn" index="40"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.0672297, 0.5128827)
+
+[node name="Marker3D42" type="Marker3D" parent="PuntosDeSpawn" index="41"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.0672297, 0.34173092)
+
+[node name="Marker3D43" type="Marker3D" parent="PuntosDeSpawn" index="42"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.0672297, 0.19647267)
+
+[node name="Marker3D44" type="Marker3D" parent="PuntosDeSpawn" index="43"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.0672297, 0.025320858)
+
+[node name="Marker3D45" type="Marker3D" parent="PuntosDeSpawn" index="44"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.0672297, -0.14414033)
+
+[node name="Marker3D46" type="Marker3D" parent="PuntosDeSpawn" index="45"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.0672297, -0.31529215)
+
+[node name="Marker3D47" type="Marker3D" parent="PuntosDeSpawn" index="46"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.0672297, -0.4605504)
+
+[node name="Marker3D48" type="Marker3D" parent="PuntosDeSpawn" index="47"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.0672297, -0.6317022)
+
+[node name="Marker3D49" type="Marker3D" parent="PuntosDeSpawn" index="48"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.6645147, 0.5128827)
+
+[node name="Marker3D50" type="Marker3D" parent="PuntosDeSpawn" index="49"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.6645147, 0.34173092)
+
+[node name="Marker3D51" type="Marker3D" parent="PuntosDeSpawn" index="50"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.6645147, 0.19647267)
+
+[node name="Marker3D52" type="Marker3D" parent="PuntosDeSpawn" index="51"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.6645147, 0.025320858)
+
+[node name="Marker3D53" type="Marker3D" parent="PuntosDeSpawn" index="52"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.6645147, -0.14414033)
+
+[node name="Marker3D54" type="Marker3D" parent="PuntosDeSpawn" index="53"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.6645147, -0.31529215)
+
+[node name="Marker3D55" type="Marker3D" parent="PuntosDeSpawn" index="54"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.6645147, -0.4605504)
+
+[node name="Marker3D56" type="Marker3D" parent="PuntosDeSpawn" index="55"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.6645147, -0.6317022)
+
+[node name="Marker3D57" type="Marker3D" parent="PuntosDeSpawn" index="56"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 2.2449827, 0.5128827)
+
+[node name="Marker3D58" type="Marker3D" parent="PuntosDeSpawn" index="57"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 2.2449827, 0.34173092)
+
+[node name="Marker3D59" type="Marker3D" parent="PuntosDeSpawn" index="58"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 2.2449827, 0.19647267)
+
+[node name="Marker3D60" type="Marker3D" parent="PuntosDeSpawn" index="59"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 2.2449827, 0.025320858)
+
+[node name="Marker3D61" type="Marker3D" parent="PuntosDeSpawn" index="60"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 2.2449827, -0.14414033)
+
+[node name="Marker3D62" type="Marker3D" parent="PuntosDeSpawn" index="61"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 2.2449827, -0.31529215)
+
+[node name="Marker3D63" type="Marker3D" parent="PuntosDeSpawn" index="62"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 2.2449827, -0.4605504)
+
+[node name="Marker3D64" type="Marker3D" parent="PuntosDeSpawn" index="63"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 2.2449827, -0.6317022)

@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdo1nme1sc5d7"]
-
-[ext_resource type="PackedScene" uid="uid://c2jil1erkrp71" path="res://model/8 16 20 conveniance_store.glb" id="1_gxd3m"]
-
-[node name="8 16 20 conveniance_store" instance=ExtResource("1_gxd3m")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="HyperInflationMVP"
+run/main_scene="uid://bwuox31tiu8up"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 

@@ -1,12 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://do7kd4jdhi1ym"]
+[gd_scene load_steps=12 format=3 uid="uid://ba7r6307v33ob"]
 
 [ext_resource type="Script" uid="uid://dklv8v0d4amif" path="res://main.gd" id="1_15x1o"]
 [ext_resource type="PackedScene" uid="uid://b66ewl3hveivq" path="res://player.tscn" id="2_3uddc"]
-[ext_resource type="PackedScene" path="res://world/store.tscn" id="3_nrmsc"]
-[ext_resource type="PackedScene" uid="uid://d2lb08642vfuw" path="res://caja.tscn" id="4_3uddc"]
 [ext_resource type="PackedScene" uid="uid://bwuox31tiu8up" path="res://world/estanteria_pared_doble.tscn" id="4_r0ces"]
-[ext_resource type="PackedScene" uid="uid://dmkm4w56peex5" path="res://objetos/pistola.tscn" id="5_nrmsc"]
-[ext_resource type="PackedScene" uid="uid://bybdnsj6sx8gf" path="res://bola.tscn" id="6_ncwd6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2esgm"]
 
@@ -104,7 +100,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8428454, -7.134534)
 shape = SubResource("BoxShape3D_r0ces")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Pared/StaticBody3D/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21.791447)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.400031)
 mesh = SubResource("BoxMesh_3uddc")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="World/Pared"]
@@ -137,38 +133,5 @@ shape = SubResource("BoxShape3D_r0ces")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Pared/StaticBody3D4/CollisionShape3D"]
 mesh = SubResource("BoxMesh_3uddc")
 
-[node name="8 16 20 conveniance_store" parent="World" instance=ExtResource("3_nrmsc")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -18.842587)
-
-[node name="PickableObject2" parent="." instance=ExtResource("4_3uddc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8110123, 1.8063221, 3.1046834)
-
-[node name="PickableObject7" parent="." instance=ExtResource("6_ncwd6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5978968, 1.465675, 2.3832521)
-
-[node name="PickableObject8" parent="." instance=ExtResource("6_ncwd6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5978968, 1.465675, 2.66127)
-
-[node name="PickableObject5" parent="." instance=ExtResource("5_nrmsc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7535298, 1.2062851, 3.1046834)
-
-[node name="PickableObject9" parent="." instance=ExtResource("6_ncwd6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25430727, 1.465675, 2.3832521)
-
-[node name="PickableObject10" parent="." instance=ExtResource("6_ncwd6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25430727, 1.465675, 2.66127)
-
-[node name="PickableObject6" parent="." instance=ExtResource("5_nrmsc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40994024, 1.2062851, 3.1046834)
-
-[node name="PickableObject4" parent="." instance=ExtResource("4_3uddc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8110123, 1.2062851, 3.1046834)
-
-[node name="PickableObject" parent="." instance=ExtResource("4_3uddc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8110123, 1.8063221, 1.0814497)
-
-[node name="PickableObject3" parent="." instance=ExtResource("4_3uddc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8110123, 1.8063221, 1.9655883)
-
 [node name="Player" parent="." instance=ExtResource("2_3uddc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.667335, -13.580032)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.667335, -3.0267775)
