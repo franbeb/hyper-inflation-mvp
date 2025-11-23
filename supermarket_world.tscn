@@ -1,21 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://ba7r6307v33ob"]
+[gd_scene load_steps=15 format=3 uid="uid://do7kd4jdhi1ym"]
 
 [ext_resource type="Script" uid="uid://dklv8v0d4amif" path="res://main.gd" id="1_15x1o"]
 [ext_resource type="PackedScene" uid="uid://b66ewl3hveivq" path="res://player.tscn" id="2_3uddc"]
-[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="3_nrmsc"]
+[ext_resource type="PackedScene" uid="uid://d2lb08642vfuw" path="res://caja.tscn" id="4_3uddc"]
 [ext_resource type="PackedScene" uid="uid://bwuox31tiu8up" path="res://world/estanteria_pared_doble.tscn" id="4_r0ces"]
+[ext_resource type="PackedScene" uid="uid://dmkm4w56peex5" path="res://objetos/pistola.tscn" id="5_nrmsc"]
+[ext_resource type="PackedScene" uid="uid://bybdnsj6sx8gf" path="res://bola.tscn" id="6_ncwd6"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
-sky_top_color = Color(0.57192916, 0.42130864, 2.8878452e-07, 1)
-sky_horizon_color = Color(0.6895189, 0.6441138, 0.5297867, 1)
-ground_horizon_color = Color(0.6895189, 0.6441138, 0.5297867, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2esgm"]
 
-[sub_resource type="Sky" id="Sky_h2yge"]
-sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
+[sub_resource type="Sky" id="Sky_b0o8s"]
+sky_material = SubResource("ProceduralSkyMaterial_2esgm")
 
 [sub_resource type="Environment" id="Environment_1bvp3"]
 background_mode = 2
-sky = SubResource("Sky_h2yge")
+sky = SubResource("Sky_b0o8s")
 tonemap_mode = 2
 sdfgi_enabled = true
 
@@ -44,11 +43,6 @@ environment = SubResource("Environment_1bvp3")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
-
-[node name="Player" parent="." instance=ExtResource("2_3uddc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3231723, 0)
-
-[node name="PlayerBody2" parent="Player" instance=ExtResource("3_nrmsc")]
 
 [node name="World" type="Node" parent="."]
 
@@ -139,3 +133,36 @@ shape = SubResource("BoxShape3D_r0ces")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Pared/StaticBody3D4/CollisionShape3D"]
 mesh = SubResource("BoxMesh_3uddc")
+
+[node name="PickableObject2" parent="." instance=ExtResource("4_3uddc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8110123, 1.8063221, 3.1046834)
+
+[node name="PickableObject7" parent="." instance=ExtResource("6_ncwd6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5978968, 1.465675, 2.3832521)
+
+[node name="PickableObject8" parent="." instance=ExtResource("6_ncwd6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5978968, 1.465675, 2.66127)
+
+[node name="PickableObject5" parent="." instance=ExtResource("5_nrmsc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7535298, 1.2062851, 3.1046834)
+
+[node name="PickableObject9" parent="." instance=ExtResource("6_ncwd6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25430727, 1.465675, 2.3832521)
+
+[node name="PickableObject10" parent="." instance=ExtResource("6_ncwd6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25430727, 1.465675, 2.66127)
+
+[node name="PickableObject6" parent="." instance=ExtResource("5_nrmsc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40994024, 1.2062851, 3.1046834)
+
+[node name="PickableObject4" parent="." instance=ExtResource("4_3uddc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8110123, 1.2062851, 3.1046834)
+
+[node name="PickableObject" parent="." instance=ExtResource("4_3uddc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8110123, 1.8063221, 1.0814497)
+
+[node name="PickableObject3" parent="." instance=ExtResource("4_3uddc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8110123, 1.8063221, 1.9655883)
+
+[node name="Player" parent="." instance=ExtResource("2_3uddc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1204643, 0)

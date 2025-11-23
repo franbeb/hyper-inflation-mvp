@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dmkm4w56peex5"]
+[gd_scene load_steps=17 format=3 uid="uid://dmkm4w56peex5"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_086nf"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="2_h683b"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bikkxsbo8x7sd" path="res://addons/godot-xr-tools/audio/pickable_audio.tscn" id="5_soku1"]
 [ext_resource type="Script" uid="uid://d3ijrryubhn2q" path="res://addons/godot-xr-tools/audio/pickable_audio_type.gd" id="6_pxqws"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="8_pxqws"]
+[ext_resource type="PackedScene" uid="uid://bavk02lur86ip" path="res://model/PistolaEtiquetadora.glb" id="9_77c26"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_45ee4"]
 size = Vector3(0.5, 0.5, 2)
@@ -42,11 +43,13 @@ metadata/_custom_type_script = "uid://d3ijrryubhn2q"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.10665439, -0.06564967)
+visible = false
 mesh = SubResource("BoxMesh_45ee4")
 skeleton = NodePath("../CollisionShape3D")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, -0.0010698885, 0.009088814)
+visible = false
 mesh = SubResource("BoxMesh_45ee4")
 skeleton = NodePath("../CollisionShape3D")
 
@@ -55,7 +58,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022903427, 0.022262558, -0.
 shape = SubResource("BoxShape3D_086nf")
 
 [node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("2_h683b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002562832, -0.01942382, -0.090095446)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002562832, 0.07101161, -0.090095446)
+visible = true
 
 [node name="LineOfFire" type="MeshInstance3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022903427, 0.112588525, -0.19736446)
@@ -95,7 +99,10 @@ target_position = Vector3(0, 0, -250)
 collision_mask = 4
 
 [node name="GrabPointHandLeft" parent="." index="9" instance=ExtResource("8_pxqws")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0062942654, -0.017755114, -0.07634935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0062942654, 0.056734063, -0.07634935)
+
+[node name="PistolaEtiquetadora" parent="." index="10" instance=ExtResource("9_77c26")]
+transform = Transform3D(-4.371139e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.371139e-09, -0.0061759055, -0.025427423, -0.041939795)
 
 [connection signal="action_pressed" from="." to="." method="_on_action_pressed"]
 [connection signal="dropped" from="." to="." method="_on_dropped"]
