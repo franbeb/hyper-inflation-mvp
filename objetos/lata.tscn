@@ -1,13 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://c40timv4cjonw"]
+[gd_scene load_steps=6 format=4 uid="uid://c40timv4cjonw"]
 
-[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_ipbxf"]
-[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="2_v5coa"]
-[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_lage0"]
+[ext_resource type="PackedScene" uid="uid://jsm8npml3ukt" path="res://objetos/generic_product.tscn" id="1_qvbqr"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ye40b"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_t6d30"]
-size = Vector3(0.5, 0.7, 0.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_qvbqr"]
+size = Vector3(0.12, 0.2, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fy47"]
 resource_name = "soda"
@@ -28,7 +24,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ipbxf"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_g5aqs"]
 resource_name = "8 16 20 conveniance_store_Cylinder_1891"
 _surfaces = [{
 "aabb": AABB(0.09939909, -1.2221853, 0.036114093, 0.11044338, 0.18788457, 0.11044335),
@@ -46,22 +42,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ymvat")
 
-[node name="PickableObject" instance=ExtResource("1_ipbxf")]
-physics_material_override = SubResource("PhysicsMaterial_ye40b")
+[node name="GenericProduct" instance=ExtResource("1_qvbqr")]
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.08761281, -0.0074665844)
-shape = SubResource("BoxShape3D_t6d30")
-debug_fill = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10543594, 0)
+shape = SubResource("BoxShape3D_qvbqr")
 
 [node name="soda_can_049" type="MeshInstance3D" parent="CollisionShape3D" index="0"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -0.6064987, 4.539444, -0.34309316)
-mesh = SubResource("ArrayMesh_ipbxf")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15555443, 1.1195456, -0.0903941)
+mesh = SubResource("ArrayMesh_g5aqs")
 skeleton = NodePath("")
-
-[node name="GrabPointHandRight" parent="." index="1" instance=ExtResource("2_v5coa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0128148645, 0.0912663, -0.074559525)
-
-[node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("3_lage0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009246409, 0.105978236, -0.06970381)
-visible = true
