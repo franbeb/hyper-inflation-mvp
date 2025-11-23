@@ -15,7 +15,7 @@ func update_price():
 	update_info()
 
 func update_info():
-	$PriceLabel.text = str((price/Globals.INFLATION)*100) + " %"
+	$PriceLabel.text = str(int((price/Globals.INFLATION)*100)) + " %"
 	
 func _ready() -> void:
 	$PriceLabel.hide()

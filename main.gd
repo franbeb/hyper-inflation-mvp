@@ -14,3 +14,8 @@ func _ready():
 		get_viewport().use_xr = true
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
+	
+
+
+func _on_timer_timeout() -> void:
+	$NPC.start_task(Globals.productos.pick_random(), $NPC.position)

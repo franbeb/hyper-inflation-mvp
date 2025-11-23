@@ -105,7 +105,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0062942654, 0.056734063, -
 visible = true
 
 [node name="PistolaEtiquetadora" parent="." index="10" instance=ExtResource("9_77c26")]
-transform = Transform3D(-4.371139e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.371139e-09, -0.0061759055, -0.025427423, -0.041939795)
+transform = Transform3D(-4.371139e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.371139e-09, -0.0063551664, -0.024637498, -0.041883737)
+
+[node name="PistolaEtiquetadora2" parent="." index="11" instance=ExtResource("9_77c26")]
+transform = Transform3D(-4.371139e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.371139e-09, -0.0063551664, -0.024637498, -0.041883737)
+visible = false
 
 [connection signal="action_pressed" from="." to="." method="_on_action_pressed"]
 [connection signal="dropped" from="." to="." method="_on_dropped"]

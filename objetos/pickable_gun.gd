@@ -11,8 +11,6 @@ func _on_dropped(pickable: Variant) -> void:
 func _on_action_pressed(pickable: Variant) -> void:
 	$HumaParticles.emitting = true
 	$AudioStreamPlayer3D.play()
-	print(global_rotation)
-	print(rotation)
 	if $RayCast3D.is_colliding():
 		#$RayCast3D.get_collider().apply_central_force(global_position.rotated(Vector3(0,1,0),PI*.75)*100)
 		$RayCast3D.get_collider().update_price()

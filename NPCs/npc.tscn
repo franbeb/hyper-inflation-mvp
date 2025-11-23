@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://6rqjd8rybxrj"]
+
+[ext_resource type="Script" uid="uid://d4j446xh1neip" path="res://NPCs/npc.gd" id="1_0ikh5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxakg"]
+albedo_color = Color(0.3647059, 0.49803922, 0.9372549, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_k7mck"]
+material = SubResource("StandardMaterial3D_vxakg")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k5705"]
+
+[node name="NPC" type="CharacterBody3D"]
+script = ExtResource("1_0ikh5")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 3.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_k7mck")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_k5705")
