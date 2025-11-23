@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://diyu06cw06syv"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="1"]
+[ext_resource type="Script" uid="uid://bv6ajlyd7o4ek" path="res://addons/godot-xr-tools/player/player_body.gd" id="1"]
 
 [node name="PlayerBody" type="CharacterBody3D" groups=["player_body"]]
 process_priority = -100
@@ -9,3 +9,4 @@ top_level = true
 collision_layer = 524288
 collision_mask = 1023
 script = ExtResource("1")
+player_height_max = 20.0

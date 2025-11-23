@@ -437,3 +437,21 @@ func _get_grab_point(grabber : Node3D, current : XRToolsGrabPoint) -> XRToolsGra
 func _set_ranged_grab_method(new_value: int) -> void:
 	ranged_grab_method = new_value
 	can_ranged_grab = new_value != RangedMethod.NONE
+
+
+func _on_grabbed(pickable: Variant, by: Variant) -> void:
+	$LineOfFire.show()
+
+
+func _on_dropped(pickable: Variant) -> void:
+	$LineOfFire.hide()
+
+
+func _on_action_pressed(pickable: Variant) -> void:
+	$HumaParticles.emitting = true
+	$AudioStreamPlayer3D.play()
+	print(global_rotation)
+	print(rotation)
+	if $RayCast3D.is_colliding():
+
+		$RayCast3D.get_collider().apply_central_force(global_position.rotated(Vector3(0,1,0),PI*.75)*100)

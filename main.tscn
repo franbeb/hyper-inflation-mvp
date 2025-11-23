@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://dklv8v0d4amif" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b66ewl3hveivq" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://d2lb08642vfuw" path="res://caja.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://bybdnsj6sx8gf" path="res://bola.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dmkm4w56peex5" path="res://objetos/pistola.tscn" id="4_lquwl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_top_color = Color(0.57192916, 0.42130864, 2.8878452e-07, 1)
@@ -56,10 +56,6 @@ shape = SubResource("BoxShape3D_7dm0k")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
 mesh = SubResource("BoxMesh_ig7tw")
 
-[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-
-[node name="PlayerBody2" parent="Player" instance=ExtResource("3_lquwl")]
-
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
@@ -81,3 +77,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.612349, 0.22595489, 0.6017
 
 [node name="PickableObject2" parent="." instance=ExtResource("4_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1024394, 0.33514118, 0.5601032)
+
+[node name="PickableObject5" parent="." instance=ExtResource("4_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.019505, 0.5457425, -0.9007976)
+
+[node name="PickableObject6" parent="." instance=ExtResource("4_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40369034, 0.5457425, -0.9007976)
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(-0.99691737, 0, -0.07845904, 0, 1, 0, 0.07845904, 0, -0.99691737, -0.8460505, 1.137927, -1.7498639)
+
+[node name="PickableObject8" parent="." instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3164662, 0)
+
+[node name="PickableObject7" parent="." instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6678606, 0)

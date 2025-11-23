@@ -1,0 +1,102 @@
+[gd_scene load_steps=16 format=3 uid="uid://dmkm4w56peex5"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_086nf"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="2_h683b"]
+[ext_resource type="Shader" uid="uid://b4lpqrih5uumj" path="res://addons/godot-xr-tools/materials/teleport.gdshader" id="3_soku1"]
+[ext_resource type="AudioStream" uid="uid://bwx3qulu0bkbi" path="res://audio/hit3.ogg" id="4_7flei"]
+[ext_resource type="Texture2D" uid="uid://ddoj6c345cb0c" path="res://addons/godot-xr-tools/images/teleport_arrow.png" id="4_pxqws"]
+[ext_resource type="PackedScene" uid="uid://bikkxsbo8x7sd" path="res://addons/godot-xr-tools/audio/pickable_audio.tscn" id="5_soku1"]
+[ext_resource type="Script" uid="uid://d3ijrryubhn2q" path="res://addons/godot-xr-tools/audio/pickable_audio_type.gd" id="6_pxqws"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="8_pxqws"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_45ee4"]
+size = Vector3(0.5, 0.5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_086nf"]
+size = Vector3(0.18297729, 0.26067504, 0.23149413)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_45ee4"]
+size = Vector2(0.05, 1)
+subdivide_depth = 40
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_77c26"]
+render_priority = 0
+shader = ExtResource("3_soku1")
+shader_parameter/scale_t = 0.0
+shader_parameter/length = 30.0
+shader_parameter/down = Vector3(0, -1, 0)
+shader_parameter/mix_color = Color(0.62352943, 0.07058824, 0.007843138, 1)
+shader_parameter/arrow_texture = ExtResource("4_pxqws")
+
+[sub_resource type="SphereMesh" id="SphereMesh_0po8m"]
+radius = 0.01
+height = 0.02
+
+[sub_resource type="AudioStream" id="AudioStream_77c26"]
+
+[sub_resource type="Resource" id="Resource_6ju8j"]
+script = ExtResource("6_pxqws")
+metadata/_custom_type_script = "uid://d3ijrryubhn2q"
+
+[node name="PickableObject" instance=ExtResource("1_086nf")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.10665439, -0.06564967)
+mesh = SubResource("BoxMesh_45ee4")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, -0.0010698885, 0.009088814)
+mesh = SubResource("BoxMesh_45ee4")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022903427, 0.022262558, -0.042944312)
+shape = SubResource("BoxShape3D_086nf")
+
+[node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("2_h683b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002562832, -0.01942382, -0.090095446)
+
+[node name="LineOfFire" type="MeshInstance3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022903427, 0.112588525, -0.19736446)
+visible = false
+mesh = SubResource("PlaneMesh_45ee4")
+skeleton = NodePath("../CollisionShape3D")
+surface_material_override/0 = SubResource("ShaderMaterial_77c26")
+
+[node name="HumaParticles" type="CPUParticles3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11348963, -0.18465239)
+emitting = false
+amount = 30
+lifetime = 0.31
+one_shot = true
+explosiveness = 0.9
+lifetime_randomness = 0.21
+mesh = SubResource("SphereMesh_0po8m")
+direction = Vector3(0, 0, -1)
+spread = 67.14
+gravity = Vector3(0, 0.7, 0)
+initial_velocity_min = 0.2
+initial_velocity_max = 1.0
+radial_accel_min = -1.0
+scale_amount_min = 0.2
+scale_amount_max = 1.2
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="6"]
+stream = ExtResource("4_7flei")
+
+[node name="PickableAudio" parent="." index="7" instance=ExtResource("5_soku1")]
+stream = SubResource("AudioStream_77c26")
+pickable_audio_type = SubResource("Resource_6ju8j")
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11348963, -0.18465239)
+target_position = Vector3(0, 0, -250)
+collision_mask = 4
+
+[node name="GrabPointHandLeft" parent="." index="9" instance=ExtResource("8_pxqws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0062942654, -0.017755114, -0.07634935)
+
+[connection signal="action_pressed" from="." to="." method="_on_action_pressed"]
+[connection signal="dropped" from="." to="." method="_on_dropped"]
+[connection signal="grabbed" from="." to="." method="_on_grabbed"]
