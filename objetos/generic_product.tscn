@@ -37,5 +37,6 @@ hand_pose = SubResource("Resource_0c2ro")
 
 [node name="PriceLabel" type="Label3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3113112, 0)
+visible = false
 billboard = 2
 text = "test"

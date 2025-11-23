@@ -1,6 +1,6 @@
 extends Node
 
-var INFLATION = 1.5
+var INFLATION = 1.75
 
 
 # Called when the node enters the scene tree for the first time.
