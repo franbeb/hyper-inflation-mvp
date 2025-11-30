@@ -18,4 +18,4 @@ func _ready():
 
 
 func _on_timer_timeout() -> void:
-	$NPC.start_task(Globals.productos.pick_random(), $NPC.position)
+	$NPC.start_task(Globals.productos.pick_random(), $NavigationRegion3D/World/Cashiers/Cashier.position)
