@@ -26,7 +26,7 @@ func _on_timer_timeout() -> void:
 
 
 func _on_npc_item_checkout(item: Variant, npc) -> void:
-	Globals.score += item.score()
+	Globals.score += int(item.score())
 	$Scoring/ScoreLabel.text = str(Globals.score)
 	item.queue_free()
 	pick_target(npc)
@@ -37,3 +37,7 @@ func pick_target(npc):
 	npc.start_task(product, $NavigationRegion3D/World/Cashiers/Cashier.position)
 	
 	
+
+
+func _on_timer_2_timeout() -> void:
+	pass # Replace with function body.
