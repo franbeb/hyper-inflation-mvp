@@ -40,4 +40,4 @@ func pick_target(npc):
 
 
 func _on_timer_2_timeout() -> void:
-	pass # Replace with function body.
+	Globals.INFLATION += 0.01

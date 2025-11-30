@@ -188,6 +188,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1003866, 1.2474838, -9.9287
 
 [node name="PickableObject" parent="." instance=ExtResource("5_nrmsc")]
 
+[node name="Timer2" type="Timer" parent="."]
+autostart = true
+
 [node name="Scoring" parent="." instance=ExtResource("7_nrmsc")]
 transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -16.086884, 4.460083, -4.39102)
 
@@ -196,3 +199,4 @@ transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -16.
 [connection signal="item_checkout" from="NPC3" to="." method="_on_npc_item_checkout"]
 [connection signal="item_checkout" from="NPC2" to="." method="_on_npc_item_checkout"]
 [connection signal="item_checkout" from="NPC4" to="." method="_on_npc_item_checkout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

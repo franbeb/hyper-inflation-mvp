@@ -19,7 +19,7 @@ func _physics_process(delta):
 
 	# Si ya está cargando el ítem → ir al punto final
 	if carrying:
-		target_item.transform.origin = $Hand.global_position
+		target_item.global_position = $Hand.global_position
 		agent.target_position = drop_position
 
 	# Si terminó la navegación → actuar
