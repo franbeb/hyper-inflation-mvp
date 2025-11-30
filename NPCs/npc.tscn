@@ -11,6 +11,7 @@ material = SubResource("StandardMaterial3D_vxakg")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k5705"]
 
 [node name="NPC" type="CharacterBody3D"]
+safe_margin = 0.005
 script = ExtResource("1_0ikh5")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

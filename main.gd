@@ -18,4 +18,22 @@ func _ready():
 
 
 func _on_timer_timeout() -> void:
-	$NPC.start_task(Globals.productos.pick_random(), $NavigationRegion3D/World/Cashiers/Cashier.position)
+	pick_target($NPC)
+	pick_target($NPC2)
+	pick_target($NPC3)
+	pick_target($NPC4)
+	
+
+
+func _on_npc_item_checkout(item: Variant, npc) -> void:
+	Globals.score += item.score()
+	$Scoring/ScoreLabel.text = str(Globals.score)
+	item.queue_free()
+	pick_target(npc)
+	
+func pick_target(npc):
+	var product = Globals.productos.pick_random()
+	Globals.productos.erase(product)
+	npc.start_task(product, $NavigationRegion3D/World/Cashiers/Cashier.position)
+	
+	

@@ -19,3 +19,6 @@ func update_info():
 	
 func _ready() -> void:
 	$PriceLabel.hide()
+	
+func score():
+	return (price/Globals.INFLATION - 0.75) * 100
