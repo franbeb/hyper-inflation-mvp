@@ -3,6 +3,7 @@ extends Node
 var INFLATION = 1.75
 var productos: Array = []
 var score = 0
+var cashiers: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -3,6 +3,7 @@ extends Node3D
 var xr_interface: XRInterface
 
 func _ready():
+	Globals.cashiers= [$NavigationRegion3D/World/Cashiers/Cashier2, $NavigationRegion3D/World/Cashiers/Cashier]
 	xr_interface = XRServer.find_interface("OpenXR")
 	if xr_interface and xr_interface.is_initialized():
 		print("OpenXR initialized successfully")
@@ -21,8 +22,6 @@ func _on_timer_timeout() -> void:
 	pick_target($NPC)
 	pick_target($NPC2)
 	pick_target($NPC3)
-	pick_target($NPC4)
-	
 
 
 func _on_npc_item_checkout(item: Variant, npc) -> void:
@@ -34,7 +33,8 @@ func _on_npc_item_checkout(item: Variant, npc) -> void:
 func pick_target(npc):
 	var product = Globals.productos.pick_random()
 	Globals.productos.erase(product)
-	npc.start_task(product, $NavigationRegion3D/World/Cashiers/Cashier.position)
+	var cashier = Globals.cashiers.pick_random()
+	npc.start_task(product, cashier.position)
 	
 	
 

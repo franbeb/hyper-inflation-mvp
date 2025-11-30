@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @onready var agent: NavigationAgent3D = $NavigationAgent3D
-var speed := 3
+var speed := 1.2
 
 var target_item: Node3D = null
 var drop_position: Vector3
@@ -19,6 +19,7 @@ func _physics_process(delta):
 
 	# Si ya está cargando el ítem → ir al punto final
 	if carrying:
+		
 		target_item.global_position = $Hand.global_position
 		agent.target_position = drop_position
 
@@ -52,11 +53,13 @@ func _pick_item():
 	carrying = true
 
 	# Adjuntar el ítem al NPC
-	#target_item.get_parent().remove_child(target_item)
-	#$Hand.add_child(target_item)
+	target_item.get_parent().remove_child(target_item)
+	$Hand.add_child(target_item)
 
 	# Opcional: ponerlo en la mano
-	target_item.transform.origin = $Hand.global_position
+	target_item.position = Vector3.ZERO
+	if target_item is RigidBody3D:
+		target_item.freeze = true
 	#target_item.process_mode = Node.PROCESS_MODE_DISABLED
 	print("Item recogido!")
 

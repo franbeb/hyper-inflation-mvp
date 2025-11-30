@@ -17,7 +17,7 @@ func _on_action_pressed(pickable: Variant) -> void:
 
 var last_colided = null
 func _process(delta: float) -> void:
-	if $RayCast3D.is_colliding() and $RayCast3D.get_collider().has_method("show_price"):
+	if $RayCast3D.is_colliding() and  $RayCast3D.get_collider() != null and $RayCast3D.get_collider().has_method("show_price"):
 		print($RayCast3D.get_collider())
 		if last_colided != $RayCast3D.get_collider():
 			if last_colided:

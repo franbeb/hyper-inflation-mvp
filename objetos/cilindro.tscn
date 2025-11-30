@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://yrrnlkncgckk"]
+
+[ext_resource type="PackedScene" uid="uid://jsm8npml3ukt" path="res://objetos/generic_product.tscn" id="1_isrm4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g5seo"]
+size = Vector3(0.15, 0.4, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isrm4"]
+albedo_color = Color(0.20392157, 0, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_isrm4"]
+material = SubResource("StandardMaterial3D_isrm4")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.4
+
+[node name="GenericProduct" instance=ExtResource("1_isrm4")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00040359795, 0.202021, -0.00053694844)
+shape = SubResource("BoxShape3D_g5seo")
+
+[node name="bottle_063" type="MeshInstance3D" parent="CollisionShape3D" index="0"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.023828402, -0.09404358, -0.010895789)
+mesh = SubResource("CylinderMesh_isrm4")
+skeleton = NodePath("")
+
+[node name="GrabPointHandLeft" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035803676, 0.10450798, -0.04451266)
+editor_preview_mode = 1
+
+[node name="GrabPointHandRight" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024903893, 0.08612233, -0.043545008)
+editor_preview_mode = 1

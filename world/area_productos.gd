@@ -45,8 +45,9 @@ func sum(accum, number):
 	
 func update_info():
 	var productos = get_all_products()
-	var price = productos.reduce(sum, 0) / productos.size()
-	$PriceLabel.text = str(int((price/Globals.INFLATION)*100)) + " %"
+	if productos.size() > 0 : 
+		var price = productos.reduce(sum, 0) / productos.size()
+		$PriceLabel.text = str(int((price/Globals.INFLATION)*100)) + " %"
 	
 func _ready() -> void:
 	$PriceLabel.hide()
