@@ -11,13 +11,14 @@ func _on_dropped(pickable: Variant) -> void:
 func _on_action_pressed(pickable: Variant) -> void:
 	$HumaParticles.emitting = true
 	$AudioStreamPlayer3D.play()
-	if $RayCast3D.is_colliding():
+	if $RayCast3D.is_colliding() and $RayCast3D.get_collider().has_method("update_price"):
 		#$RayCast3D.get_collider().apply_central_force(global_position.rotated(Vector3(0,1,0),PI*.75)*100)
 		$RayCast3D.get_collider().update_price()
 
 var last_colided = null
 func _process(delta: float) -> void:
 	if $RayCast3D.is_colliding() and $RayCast3D.get_collider().has_method("show_price"):
+		print($RayCast3D.get_collider())
 		if last_colided != $RayCast3D.get_collider():
 			if last_colided:
 				last_colided.hide_price()

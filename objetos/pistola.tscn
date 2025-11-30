@@ -99,6 +99,9 @@ pickable_audio_type = SubResource("Resource_6ju8j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11348963, -0.18465239)
 target_position = Vector3(0, 0, -250)
 collision_mask = 4
+collide_with_areas = true
+debug_shape_custom_color = Color(0, 0, 0.9137255, 1)
+debug_shape_thickness = 4
 
 [node name="GrabPointHandLeft" parent="." index="9" instance=ExtResource("8_pxqws")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0062942654, 0.056734063, -0.07634935)
