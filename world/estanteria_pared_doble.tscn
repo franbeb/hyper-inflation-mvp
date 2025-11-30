@@ -1,16 +1,41 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwuox31tiu8up"]
+[gd_scene load_steps=17 format=3 uid="uid://bwuox31tiu8up"]
 
 [ext_resource type="PackedScene" uid="uid://b04h85fxhm84j" path="res://model/EstanteriaParedDoble.glb" id="1_4shkm"]
 [ext_resource type="PackedScene" uid="uid://cbefpunnua47l" path="res://objetos/botella.tscn" id="2_8qhyv"]
 [ext_resource type="Script" uid="uid://8tooko883xc3" path="res://world/estanteria_pared_doble.gd" id="2_rrycd"]
 [ext_resource type="PackedScene" uid="uid://c40timv4cjonw" path="res://objetos/lata.tscn" id="4_prdm3"]
 [ext_resource type="PackedScene" uid="uid://d0hfwvptichhn" path="res://objetos/cereal.tscn" id="5_rae3j"]
+[ext_resource type="Script" uid="uid://duqokw4e2uxjt" path="res://world/area_productos.gd" id="6_3b04s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4shkm"]
 size = Vector3(0.03, 1.4, 0.96)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8qhyv"]
 size = Vector3(75, 5, 92)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3b04s"]
+size = Vector3(0.556, 0.5, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_43jv1"]
+size = Vector3(0.556, 0.5, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n6fiw"]
+size = Vector3(0.556, 0.5, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1pm0m"]
+size = Vector3(0.556, 0.5, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b6ivh"]
+size = Vector3(0.556, 0.5, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ihx0t"]
+size = Vector3(0.556, 0.5, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mus6s"]
+size = Vector3(0.556, 0.5, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nui45"]
+size = Vector3(0.556, 0.5, 1.6)
 
 [node name="EstanteriaParedDoble" node_paths=PackedStringArray("contenedor_puntos") instance=ExtResource("1_4shkm")]
 script = ExtResource("2_rrycd")
@@ -88,6 +113,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.0672297, -0.460
 [node name="Marker3D16" type="Marker3D" parent="PuntosDeSpawn/Estanteria" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.0672297, -0.6317022)
 
+[node name="AreaGrupo" type="Area3D" parent="PuntosDeSpawn/Estanteria" index="8"]
+collision_layer = 4
+collision_mask = 196615
+script = ExtResource("6_3b04s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuntosDeSpawn/Estanteria/AreaGrupo" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43731022, 1.1915268, -0.05901447)
+shape = SubResource("BoxShape3D_3b04s")
+
+[node name="PriceLabel" type="Label3D" parent="PuntosDeSpawn/Estanteria/AreaGrupo" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8901967, 1.2064297, 0)
+billboard = 2
+text = "test"
+
 [node name="Estanteria1" type="Node3D" parent="PuntosDeSpawn" index="1"]
 
 [node name="Marker3D" type="Marker3D" parent="PuntosDeSpawn/Estanteria1" index="0"]
@@ -113,6 +152,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 0.4696899, -0.460
 
 [node name="Marker3D8" type="Marker3D" parent="PuntosDeSpawn/Estanteria1" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 0.4696899, -0.6317022)
+
+[node name="AreaGrupo" type="Area3D" parent="PuntosDeSpawn/Estanteria1" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.60600585, 0)
+collision_layer = 4
+collision_mask = 196615
+script = ExtResource("6_3b04s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuntosDeSpawn/Estanteria1/AreaGrupo" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43731022, 1.1915268, -0.05901447)
+shape = SubResource("BoxShape3D_43jv1")
+
+[node name="PriceLabel" type="Label3D" parent="PuntosDeSpawn/Estanteria1/AreaGrupo" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8901967, 1.2064297, 0)
+billboard = 2
+text = "test"
 
 [node name="Estanteria2" type="Node3D" parent="PuntosDeSpawn" index="2"]
 
@@ -140,6 +194,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.6645147, -0.460
 [node name="Marker3D24" type="Marker3D" parent="PuntosDeSpawn/Estanteria2" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 1.6645147, -0.6317022)
 
+[node name="AreaGrupo" type="Area3D" parent="PuntosDeSpawn/Estanteria2" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.61065775, 0)
+collision_layer = 4
+collision_mask = 196615
+script = ExtResource("6_3b04s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuntosDeSpawn/Estanteria2/AreaGrupo" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43731022, 1.1915268, -0.05901447)
+shape = SubResource("BoxShape3D_n6fiw")
+
+[node name="PriceLabel" type="Label3D" parent="PuntosDeSpawn/Estanteria2/AreaGrupo" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8901967, 1.2064297, 0)
+billboard = 2
+text = "test"
+
 [node name="Estanteria3" type="Node3D" parent="PuntosDeSpawn" index="3"]
 
 [node name="Marker3D25" type="Marker3D" parent="PuntosDeSpawn/Estanteria3" index="0"]
@@ -165,6 +234,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 2.2449827, -0.460
 
 [node name="Marker3D32" type="Marker3D" parent="PuntosDeSpawn/Estanteria3" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53506297, 2.2449827, -0.6317022)
+
+[node name="AreaGrupo" type="Area3D" parent="PuntosDeSpawn/Estanteria3" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2218549, 0)
+collision_layer = 4
+collision_mask = 196615
+script = ExtResource("6_3b04s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuntosDeSpawn/Estanteria3/AreaGrupo" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43731022, 1.1915268, -0.05901447)
+shape = SubResource("BoxShape3D_1pm0m")
+
+[node name="PriceLabel" type="Label3D" parent="PuntosDeSpawn/Estanteria3/AreaGrupo" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8901967, 1.2064297, 0)
+billboard = 2
+text = "test"
 
 [node name="Estanteria4" type="Node3D" parent="PuntosDeSpawn" index="4"]
 
@@ -192,6 +276,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 0.4696899, -0.460
 [node name="Marker3D40" type="Marker3D" parent="PuntosDeSpawn/Estanteria4" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 0.4696899, -0.6317022)
 
+[node name="AreaGrupo" type="Area3D" parent="PuntosDeSpawn/Estanteria4" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8715339, -0.60600585, -0.10467321)
+collision_layer = 4
+collision_mask = 196615
+script = ExtResource("6_3b04s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuntosDeSpawn/Estanteria4/AreaGrupo" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43731022, 1.1915268, 0.037945718)
+shape = SubResource("BoxShape3D_b6ivh")
+
+[node name="PriceLabel" type="Label3D" parent="PuntosDeSpawn/Estanteria4/AreaGrupo" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.060948253, 1.2064297, 0)
+billboard = 2
+text = "test"
+
 [node name="Estanteria5" type="Node3D" parent="PuntosDeSpawn" index="5"]
 
 [node name="Marker3D41" type="Marker3D" parent="PuntosDeSpawn/Estanteria5" index="0"]
@@ -217,6 +316,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.0672297, -0.460
 
 [node name="Marker3D48" type="Marker3D" parent="PuntosDeSpawn/Estanteria5" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.0672297, -0.6317022)
+
+[node name="AreaGrupo" type="Area3D" parent="PuntosDeSpawn/Estanteria5" index="8"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.07605952, 0.019444108, -0.13216895)
+collision_layer = 4
+collision_mask = 196615
+script = ExtResource("6_3b04s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuntosDeSpawn/Estanteria5/AreaGrupo" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43731022, 1.1915268, -0.05901447)
+shape = SubResource("BoxShape3D_ihx0t")
+
+[node name="PriceLabel" type="Label3D" parent="PuntosDeSpawn/Estanteria5/AreaGrupo" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8901967, 1.2064297, 0)
+billboard = 2
+text = "test"
 
 [node name="Estanteria6" type="Node3D" parent="PuntosDeSpawn" index="6"]
 
@@ -244,6 +358,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.6645147, -0.460
 [node name="Marker3D56" type="Marker3D" parent="PuntosDeSpawn/Estanteria6" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 1.6645147, -0.6317022)
 
+[node name="AreaGrupo" type="Area3D" parent="PuntosDeSpawn/Estanteria6" index="8"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.02008915, 0.6510213, -0.13141847)
+collision_layer = 4
+collision_mask = 196615
+script = ExtResource("6_3b04s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuntosDeSpawn/Estanteria6/AreaGrupo" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43731022, 1.1915268, -0.05901447)
+shape = SubResource("BoxShape3D_mus6s")
+
+[node name="PriceLabel" type="Label3D" parent="PuntosDeSpawn/Estanteria6/AreaGrupo" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8901967, 1.2064297, 0)
+billboard = 2
+text = "test"
+
 [node name="Estanteria7" type="Node3D" parent="PuntosDeSpawn" index="7"]
 
 [node name="Marker3D57" type="Marker3D" parent="PuntosDeSpawn/Estanteria7" index="0"]
@@ -269,3 +398,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 2.2449827, -0.460
 
 [node name="Marker3D64" type="Marker3D" parent="PuntosDeSpawn/Estanteria7" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4317482, 2.2449827, -0.6317022)
+
+[node name="AreaGrupo" type="Area3D" parent="PuntosDeSpawn/Estanteria7" index="8"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.061436653, 1.2160748, -0.10492587)
+collision_layer = 4
+collision_mask = 196615
+script = ExtResource("6_3b04s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuntosDeSpawn/Estanteria7/AreaGrupo" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43731022, 1.1915268, -0.05901447)
+shape = SubResource("BoxShape3D_nui45")
+
+[node name="PriceLabel" type="Label3D" parent="PuntosDeSpawn/Estanteria7/AreaGrupo" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8901967, 1.2064297, 0)
+billboard = 2
+text = "test"

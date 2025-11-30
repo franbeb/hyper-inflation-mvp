@@ -22,24 +22,27 @@ func spawnear_objetos_random():
 
 	# Obtenemos todos los hijos del contenedor (tus Markers)
 	var estanterias = contenedor_puntos.get_children()
-	for estatante in estanterias:
-		var puntos_spawn = estatante.get_children()
+	for estante in estanterias:
+		var puntos_spawn = estante.get_children()
+		
 		# 1. Elegimos una escena al azar del array
 		var escena_random = objetos_posibles.pick_random()
 		# --- OPCIÓN A: Poner un objeto random en CADA punto ---
 		for punto in puntos_spawn:
-			generar_instancia(punto,escena_random)
+			if punto is Marker3D:
+				generar_instancia(punto,escena_random,estante)
 
 	# --- OPCIÓN B: (Alternativa) Elegir SOLO UN punto al azar ---
 	# var punto_random = puntos_spawn.pick_random()
 	# generar_instancia(punto_random)
 
-func generar_instancia(punto_objetivo,escena_random):
+func generar_instancia(punto_objetivo,escena_random,estante):
 	
 	# 2. Instanciamos (creamos) el objeto
 	var nuevo_objeto = escena_random.instantiate()
 	Globals.productos.append(nuevo_objeto)
-	add_child(nuevo_objeto)
+	#estante.find_children("AreaGrupo")[0].productos.append(nuevo_objeto) 
+	estante.add_child(nuevo_objeto)
 
 	# ESTA es la línea mágica:
 	nuevo_objeto.top_level = true 
